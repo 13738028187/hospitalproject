@@ -1,0 +1,123 @@
+<template>
+    <view class='nav-wrap' style='height: {{height*2 + 20}}px;'>
+        // 导航栏 中间的标题
+        <view class='nav-title' style='line-height: {{height*2 + 44}}px;'>{{navbarData.title}}</view>
+        <view style='display: flex; justify-content: space-around;flex-direction: column'>
+            // 导航栏  左上角的返回按钮 和home按钮
+            //  其中wx:if='{{navbarData.showCapsule}}' 是控制左上角按钮的显示隐藏，首页不显示
+            <view class='nav-capsule' style='height: {{height*2 + 44}}px;' wx:if='{{navbarData.showCapsule}}'>
+                //左上角的返回按钮，wx:if='{{!share}}'空制返回按钮显示
+                //从分享进入小程序时 返回上一级按钮不应该存在
+                <view bindtap='_navback' wx:if='{{!share}}'>
+                    <image src='/imgs/back-pre.png' mode='aspectFill' class='back-pre'></image>
+                </view>
+                <view class='navbar-v-line' wx:if='{{!share}}'></view>
+                <view bindtap='_backhome'>
+                    <image src='/imgs/back-home.png' mode='aspectFill' class='back-home'></image>
+                </view>
+            </view>
+        </view>
+    </view>
+</template>
+
+<script>
+  export default {
+    name: 'navigationStyle'
+  },
+  properties: {
+      navbarData: {   //navbarData   由父页面传递的数据，变量名字自命名
+          type: Object,
+              value: {},
+          observer: function (newVal, oldVal) {}
+      }
+  },
+   data(){
+      return {
+          height: '',
+          //默认值  默认显示左上角
+          navbarData: {
+              showCapsule: 1
+          }
+      }
+  },
+  attached: function () {
+      // 获取是否是通过分享进入的小程序
+      this.setData({
+          share: app.globalData.share
+      })
+      // 定义导航栏的高度   方便对齐
+      this.setData({
+          height: app.globalData.height
+      })
+  },
+  methods:{
+      // 返回上一页面
+      _navback() {
+          wx.navigateBack()
+      },
+      //返回到首页
+      _backhome() {
+          wx.switchTab({
+              url: '/pages/index/index',
+          })
+      }
+  }
+
+
+</script>
+
+<style scoped>
+    /* 顶部要固定定位   标题要居中   自定义按钮和标题要和右边微信原生的胶囊上下对齐 */
+    .nav-wrap {
+        position: fixed;
+        width: 100%;
+        top: 0;
+        background: #fff;
+        color: #000;
+        z-index: 9999999;
+    }
+    /* 标题要居中 */
+    .nav-title {
+        position: absolute;
+        text-align: center;
+        max-width: 400rpx;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        margin: auto;
+        font-size: 36rpx;
+        color: #2c2b2b;
+        font-weight: 600;
+    }
+
+    .nav-capsule {
+        display: flex;
+        align-items: center;
+        margin-left: 30rpx;
+        width: 140rpx;
+        justify-content: space-between;
+        height: 100%;
+    }
+
+    .navbar-v-line {
+        width: 1px;
+        height: 32rpx;
+        background-color: #e5e5e5;
+    }
+
+    .back-pre, .back-home {
+        width: 32rpx;
+        height: 36rpx;
+        margin-top: 4rpx;
+        padding: 10rpx;
+    }
+    .nav-capsule .back-home {
+        width: 36rpx;
+        height: 40rpx;
+        margin-top: 3rpx;
+    }
+</style>

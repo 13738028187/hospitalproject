@@ -1,0 +1,83 @@
+
+{
+  "pages": [
+    "pages/login/main",
+    "pages/index/main",
+    "pages/hosdep/main",
+    "pages/my/main",
+    "pages/nurseinfo/main",
+    "pages/servicelist/main",
+    "pages/searchservice/main",
+    "pages/register/main",
+    "pages/hosinfo/main",
+    "pages/hosdetails/main",
+    "pages/depinfo/main",
+    "pages/depdetails/main",
+    "pages/serviceinfo/main",
+    "pages/servicedetails/main",
+    "pages/nursedetails/main",
+    "pages/apparatuslist/main",
+    "pages/apparatusinfo/main",
+    "pages/apparatusdetails/main",
+    "pages/service/main",
+    "pages/apparatuspack/main",
+    "pages/apparatuspacklist/main",
+    "pages/apparatuspackdetails/main",
+    "pages/nopass/main",
+    "pages/sendoptlist/main",
+    "pages/sendoptdetails/main",
+    "pages/auditingdetails/main",
+    "pages/auditing/main",
+    "pages/map/main"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "5M云护理",
+    "navigationBarTextStyle": "black"
+  },
+ "tabBar": {
+    "color": "#a9b7b7",
+    "selectedColor": "#1296db",
+    "borderStyle": "black" ,
+    "list": [
+        {
+            "selectedIconPath": "./static/images/index2.png",
+            "iconPath": "./static/images/index1.png",
+            "pagePath": "pages/index/main",
+            "text": "首页"
+        },
+        {
+            "selectedIconPath": "./static/images/fw2.png",
+            "iconPath": "./static/images/fw1.png",
+            "pagePath": "pages/servicelist/main",
+            "text": "服务"
+        },
+        {
+            "selectedIconPath": "./static/images/dd2.png",
+            "iconPath": "./static/images/dd1.png",
+            "pagePath": "pages/sendoptlist/main",
+            "text": "订单"
+        },
+        {
+            "selectedIconPath": "./static/images/my2.png",
+            "iconPath": "./static/images/my1.png",
+            "pagePath": "pages/my/main",
+            "text": "我的"
+        }
+    ]
+},
+
+"plugins": {
+        "myPlugin": {
+            "version": "1.0.6",
+            "provider": "wx5bc2ac602a747594"
+        }
+    },
+    "permission": {
+        "scope.userLocation": {
+            "desc": "你的位置信息将用于小程序位置接口的效果展示"
+        }
+    }
+
+}

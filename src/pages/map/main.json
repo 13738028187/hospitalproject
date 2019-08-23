@@ -1,0 +1,8 @@
+{
+  "navigationBarTitleText": "位置信息",
+  "navigationBarBackgroundColor": "#0081ff",
+  "navigationBarTextStyle": "white",
+  "usingComponents": {
+      "map-route": "plugin://myPlugin/mapRoute"
+  }
+}

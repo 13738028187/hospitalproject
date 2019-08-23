@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "药品、器械管理",
+  "navigationBarBackgroundColor": "#0081ff",
+  "navigationBarTextStyle": "white",
+  "enablePullDownRefresh": true
+}
